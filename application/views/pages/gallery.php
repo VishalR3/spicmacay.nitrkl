@@ -1,24 +1,18 @@
+<style>
+    .img{
+        margin-top:20px;
+    }
+</style>
 <div class="container">
-            <div class="lightbox">
-                
-                <div class="controllers">
-                        <button class="btn btn-default" id="close"><i class="fa fa-close"></i></button>
-                        <i class="fa fa-angle-left" id="left_ctrl"></i>
-                        <i class="fa fa-angle-right" id="right_ctrl"></i>
-                </div>
-                <div>
-                <img src="" id="lightimg" class="img-responsive">
-                </div>
-            </div>
-        
-
-            <div class="gallery" id="gallery">
+        <div class="gallery" id="gallery">
                 <div class="row" id="gal_row">
+                <?php foreach($images as $image) : ?>
                     <div class="col-md-4 col-sm-6">
-                    <a href="<?php echo base_url(); ?>assets/img/inno1.jpg" data-fancybox="gallery">
-                        <img src="<?php echo base_url(); ?>assets/img/inno1.jpg" class="img">
+                    <a href="<?php echo base_url(); ?>assets/img/gallery/<?php echo $image['image']; ?>" data-fancybox="gallery">
+                        <img src="<?php echo base_url(); ?>assets/img//gallery/<?php echo $image['image']; ?>" class="img">
                 </a>
                     </div>
+                <?php endforeach ; ?>
                     <div class="col-md-4 col-sm-6">
                     <a href="<?php echo base_url(); ?>assets/img/inno2.jpg" data-fancybox="gallery">
                         <img src="<?php echo base_url(); ?>assets/img/inno2.jpg" class="img">

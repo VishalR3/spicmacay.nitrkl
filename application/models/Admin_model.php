@@ -10,13 +10,13 @@ class Admin_model extends CI_Model{
         <p>You will get latest event and other important notifications on your email</p>";
         
     }
-    public function sign_up($username, $email, $name ,$password){
+    public function sign_up($username, $email, $name ,$password,$role){
 		$data = array(
 			'username'=>$username,
 			'email'=>$email,
 			'name'=>$name,
 			'password'=>$password,
-			'role'=>'0'
+			'role'=>$role
 		);
 		return $this->db->insert('users',$data);
 	}
@@ -42,7 +42,7 @@ class Admin_model extends CI_Model{
 	}
 	public function get_admins(){
 		$this->db->order_by('id','DESC');
-		$query=$this->db->get_where('users',array('role'=>'1'));
+		$query=$this->db->get_where('users',array('role >='=>'1'));
 		return $query->result_array();
 	}
 	public function m_admin($username){

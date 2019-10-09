@@ -34,7 +34,7 @@
             $this->db->delete('events');
             return true;
         }
-        public function update_post(){
+        public function update_post($post_image){
             $slug=url_title($this->input->post('title'));
 
             $data = array(

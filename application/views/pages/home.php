@@ -48,7 +48,7 @@
 
 
           <!--Slider Ends-->
-                    <div id="details" style="color:black;">
+                    <div id="details" style="color:black;" class="wow bounceInUp">
                       <p id="test"></p>
       
                             <h1 class="one">SPICMACAY NIT Rourkela Chapter</h1>
@@ -65,69 +65,14 @@
                       <hr>
                       <h3>UPCOMING EVENTS</h3>
                       <div class="col-lg-6 order-2 card-2">
-                        <img src="<?php echo base_url() ;?>/assets/img/vikku_classic.jpg" style="width:100%;">
+                        <img src="<?php echo base_url(); ?>assets/img/events/<?php echo $upcoming['post_image']; ?>" style="width:100%;">
                       </div>
                           <button class="btn" id="share_btn">Share</button>
                     </div>
                     
         <hr>
         <h3 style="color:black;">OUR TEAM</h3>
-        <img src="<?php echo base_url() ;?>/assets/img/team.jpg" width="100%" height="100%" alt="SPICMACAY Team">
+        <img class="wow bounceInUp"src="<?php echo base_url(); ?>assets/img/<?php echo $team_image['team_image']; ?>" width="100%" height="100%" alt="SPICMACAY Team">
         <hr>
-        <div class="owl-carousel wow bounceInUp">
-            <div class="item">
-              <img  src="<?php echo base_url();?>assets/img/NMB_1210.jpg">
-            </div>
-            <div class="item">
-              <img  src="<?php echo base_url();?>assets/img/NMB_1211.jpg">
-            </div>
-            <div class="item">
-              <img  src="<?php echo base_url();?>assets/img/NMB_1209.jpg">
-            </div>
-            <div class="item">
-              <img  src="<?php echo base_url();?>assets/img/NMB_1205.jpg">
-            </div>
-            <div class="item">
-              <img  src="<?php echo base_url();?>assets/img/inno1.jpg">
-            </div>
-            <div class="item">
-              <img  src="<?php echo base_url();?>assets/img/inno2.jpg">
-            </div>
-            <div class="item">
-              <img  src="<?php echo base_url();?>assets/img/inno3.jpg">
-            </div>
-            <div class="item">
-              <img  src="<?php echo base_url();?>assets/img/teejan_bai.jpg">
-            </div>
-        </div>
 
         </div>
-
-        <script>
-          $(document).ready(function(){
-              $(".owl-carousel").owlCarousel({
-                loop:true,
-                margin:10,
-                autoheight:true,
-                autoplay:true,
-                checkVisible:true,
-                responsive:{
-                  0:{
-                    items:1
-                  },
-                  320:{
-                    items:2
-
-                  },
-                  600:{
-                    items:4
-                  },
-                  1000:{
-                    items:5
-                  }
-                }
-
-              })
-
-          });
-        </script>

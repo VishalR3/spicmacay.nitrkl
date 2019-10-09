@@ -6,6 +6,9 @@
             $this->load->library('session');
         }
         public function index(){
+            if(!$this->session->userdata("logged_in")){
+                redirect("login");
+            }
     
             $data['title'] = "Admin Panel";
             $data['posts']=$this->Panel_model->get_posts();
@@ -14,8 +17,9 @@
             
         
             $this->load->view('templates/header', $data);
+            $this->load->view('templates/adminbar',$data);
             $this->load->view('admin/Panel', $data);
-            $this->load->view('templates/footer', $data);
+            $this->load->view('templates/adminfooter', $data);
         }
         public function create(){
             $data['title']="Create Event Post";
@@ -25,17 +29,18 @@
             $this->form_validation->set_rules('body', 'Body', 'required');
 
             if($this->form_validation->run()=== FALSE){
-                $this->load->view('templates/header',$data);
+            $this->load->view('templates/header',$data);
+            $this->load->view('templates/adminbar',$data);
             $this->load->view('admin/create', $data);
-            $this->load->view('templates/footer');
+            $this->load->view('templates/adminfooter');
 
 
             }else{
                 $config['upload_path']='./assets/img/posts/';
                 $config['allowed_types']='gif|jpg|png|jpeg';
-                $config['max_size']='16777215';
-                $config['max_width']='3000';
-                $config['max_height']='3000';
+                $config['max_size']='41943040';
+                $config['max_width']='6000';
+                $config['max_height']='6000';
                 $this->load->library('upload', $config);
                 $post_image = "noimage.jpg";
                 
@@ -48,12 +53,12 @@
                     }
 
                 $this->Panel_model->create_post($post_image);
-                redirect("panel");
+                redirect("admin");
             }        
         }
         public function delete($id){
             $this->Panel_model->delete_post($id);
-            redirect("panel");
+            redirect("admin");
         }
         public function edit($slug){
             $data['post']=$this->Panel_model->get_posts($slug);
@@ -63,16 +68,17 @@
             $data['title']='Edit Event Post';
 
             $this->load->view('templates/header',$data);
+            $this->load->view('templates/adminbar',$data);
             $this->load->view('admin/edit', $data);
-            $this->load->view('templates/footer');
+            $this->load->view('templates/adminfooter');
 
         }
         public function update(){
             $config['upload_path']='./assets/img/posts/';
-            $config['allowed_types']='gif|jpg|png|jpeg';
-            $config['max_size']='16777215';
-                $config['max_width']='3000';
-                $config['max_height']='3000';
+            $config['allowed_types']='jpg|png|jpeg|gif';
+            $config['max_size']='83886080';
+                $config['max_width']='8000';
+                $config['max_height']='8000';
                 $this->load->library('upload', $config);
                 $post_image = "noimage.jpg";
                 
@@ -81,11 +87,11 @@
                     $post_image = $this->upload->data('file_name');}
                     else{
                         $errors= array('error'=> $this->upload->display_errors());
-                        $post_image = "noimage.jpg";
+                        $post_image = "notupimage.jpg";
                     }
 
-            $this->Panel_model->Update_post($post_image);
-            redirect("panel");
+            $this->Panel_model->update_post($post_image);
+            redirect("admin");
         }
         public function comment(){
             $this->Panel_model->comment();
@@ -111,7 +117,7 @@
                     }
 
             $this->Panel_model->up_event($post_image);
-            redirect("panel");
+            redirect("admin");
         }
         public function team(){
             $config['upload_path']='./assets/img/';
@@ -131,7 +137,7 @@
                     }
 
             $this->Panel_model->team_photo($post_image);
-            redirect("panel");
+            redirect("admin");
         }
         public function gallery_pics(){
             $data['title']="Upload Gallery Pics";
@@ -140,9 +146,10 @@
             $this->form_validation->set_rules('caption', 'Caption', 'required');
 
             if($this->form_validation->run()=== FALSE){
-                $this->load->view('templates/header',$data);
+            $this->load->view('templates/header',$data);
+            $this->load->view('templates/adminbar',$data);
             $this->load->view('admin/gallery', $data);
-            $this->load->view('templates/footer');
+            $this->load->view('templates/adminfooter');
 
 
             }else{

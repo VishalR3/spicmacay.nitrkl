@@ -1,4 +1,4 @@
-<?php if ($this->session->userdata('role') == '1') {?>
+<?php if ($this->session->userdata('role') >= '4') {?>
 <style>
 .users{
     margin:20px;
@@ -9,7 +9,7 @@ table tr,th,td{
 }   
 </style>
 <div class="container">
-<div class="Users">
+<!-- <div class="Users">
 <h4>Users</h4>
 <div class="holder">
     <table class="table-bordered table-striped table-responsive text-center">
@@ -31,7 +31,7 @@ table tr,th,td{
         <?php endforeach; ?>
     </table>
 
-</div>
+</div> -->
 <div class="Users">
 <h4>Admins</h4>
 <div class="holder">
@@ -44,6 +44,7 @@ table tr,th,td{
             <th>Action</th>
         </tr>
         <?php foreach($admins as $user) : ?>
+        <?php if( $user['role'] <= $this->session->userdata('role') ) { ?>
         <tr>
             <td><?php echo $user['name']; ?></td>
             <td><?php echo $user['username']; ?></td>
@@ -51,6 +52,7 @@ table tr,th,td{
             <td><?php echo $user['role']; ?></td>
             <td><a class="btn btn-primary" href="<?php echo base_url(); ?>admin/remove_admin/<?php echo $user['username']; ?>">Remove Admin</td>
         </tr>
+        <?php } ?>
         <?php endforeach; ?>
     </table>
 
@@ -63,7 +65,7 @@ table tr,th,td{
 
 
 <?php }
-  else if(!$this->session->userdata('logged_in') or $this->session->userdata('role') != 'admin'){ ?>
+  else if(!$this->session->userdata('logged_in') or $this->session->userdata('role') < '4'){ ?>
   <div class="container" style="background-color:#eee;padding:10%;">
      <div class="errbox text-center" style="background-color:#bbb;padding:30px;">
      <h1>Sorry! Direct Access is Forbidden</h1>

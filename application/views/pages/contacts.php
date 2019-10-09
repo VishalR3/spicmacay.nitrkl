@@ -54,7 +54,7 @@
     <!--FeedBack Form-->
    <div class="container" id="Feed_Form">
           <?php
-     $conn= new mysqli("localhost","root","","spic_subs") or die ("Connection Failed");
+     $conn= new mysqli("localhost","root","","spicmacay") or die ("Connection Failed");
      if($_SERVER['REQUEST_METHOD']=='POST'){?>
           <div class="response col-lg-6">
      <p> 

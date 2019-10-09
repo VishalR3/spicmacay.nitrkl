@@ -23,47 +23,8 @@
       </footer>
 
 
-       <!-- Bootstrap core JavaScript -->
+    <!-- Bootstrap core JavaScript -->
        <script src="<?php echo base_url(); ?>assets/vendor/wow/wow.min.js"></script>
-    <script>
-       $(document).ready(function(){
-    $(".sub").click(function(event){
-      event.preventDefault();
-      var data=$("input[name=email]").val();
-      //alert(data);
-      $.post("<?php echo base_url() ;?>admin/subscribe",{
-        email : data 
-      },function(res,stat){
-        if(stat=="success"){
-          
-          $(".formdata").css("display","flex");
-          $(".data_body").html(res);
-        }
-        
-      });
 
-      
-    })
-    $(".formdata").click(function(){
-      $(this).hide();
-    });
-
-
-
-  })
-    </script>
-    <script>
-      new WOW().init();
-    </script>
-     <script>
-                // Replace the <textarea id="editor1"> with a CKEditor
-                // instance, using default configuration.
-                CKEDITOR.replace( 'editor1' );
-            </script>
-            <script>
-                // Replace the <textarea id="editor1"> with a CKEditor
-                // instance, using default configuration.
-                CKEDITOR.replace( 'editor2' );
-            </script>
   </body>
   </html>

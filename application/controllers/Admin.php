@@ -19,20 +19,23 @@
             $this->form_validation->set_rules('username', 'Username','trim|required|is_unique[users.username]');
             $this->form_validation->set_rules('email', 'Email','trim|required|valid_email|is_unique[users.email]');
             $this->form_validation->set_rules('password', 'Password','trim|required');
+            $this->form_validation->set_rules('role','User Role','required');
         
             if ($this->form_validation->run() == TRUE) {
                 $username = $this->input->post('username');
                 $email = $this->input->post('email');
                 $name = $this->input->post('name');
                 $password = md5($this->input->post('password'));
-                $this->Admin_model->sign_up($username, $email, $name ,$password);
+                $role = $this->input->post('role');
+                $this->Admin_model->sign_up($username, $email, $name ,$password,$role);
                 $this->session->set_flashdata('signup_stat', 'Sign up successful! Login to your account');
                 redirect();
             }
         
             else {
-                redirect();
                 $this->session->set_flashdata('signup_stat', 'Sign up unsuccessful! Try again');
+                redirect("register");
+                
             }
         }
         
@@ -57,15 +60,15 @@
         
                 $this->session->set_flashdata('login_stat','Login Successful!');
         
-                redirect();
+                redirect("admin");
             }
         
             else {
                 $this->session->set_flashdata('login_stat', 'Login unsuccessful. Try again...');
-                redirect();
+                redirect("login");
             }
             } else {
-                redirect();
+                redirect("login");
             }
         
         }
@@ -78,9 +81,10 @@
             $data['users']=$this->Admin_model->get_users();
             $data['admins']=$this->Admin_model->get_admins();
 
-            $this->load->view('templates/header');
+            $this->load->view('templates/header',$data);
+            $this->load->view('templates/adminbar',$data);
             $this->load->view('admin/admins', $data);
-            $this->load->view('templates/footer');
+            $this->load->view('templates/adminfooter',$data);
         }
         public function make_admin($username){
             $this->Admin_model->m_admin($username);

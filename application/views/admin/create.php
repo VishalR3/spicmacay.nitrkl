@@ -1,4 +1,5 @@
-<?php if ($this->session->userdata('role') == '1') {?>
+<?php
+if ($this->session->userdata('role') >= '1') {?>
 <div class="container text-dark text-left">
 
 <h2><?= $title; ?></h2>
@@ -26,14 +27,15 @@
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 </div>
-<?php }
-  else if(!$this->session->userdata('logged_in') or $this->session->userdata('role') != 'admin'){ ?>
-  <div class="container" style="background-color:#eee;padding:10%;">
-     <div class="errbox text-center" style="background-color:#bbb;padding:30px;">
-     <h1>Sorry! Direct Access is Forbidden</h1>
-     <h4>Only Adminstrators can access.</h4>
-     </div>
-  </div>
+<script>
 
-  <?php } ?>
-     
+ClassicEditor
+                        .create( document.querySelector( '#editor1' ) )
+                        .then( editor => {
+                                console.log( editor );
+                        } )
+                        .catch( error => {
+                                console.error( error );
+                        } );
+</script>
+<?php } ?>
