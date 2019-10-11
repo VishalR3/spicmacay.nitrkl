@@ -25,6 +25,19 @@
 
     <!-- Bootstrap core JavaScript -->
        <script src="<?php echo base_url(); ?>assets/vendor/wow/wow.min.js"></script>
+       <script>
+       $(function(){
+         $("#share_btn").click(function(){
+          FB.ui({
+  method: 'share',
+  href: "https://www.facebook.com/SpicMacayNITR/posts/2374678469275536",
+  hashtag: "#spicmacay"
+
+}, function(response){});
+         })
+       })
+       
+       </script>
 
   </body>
   </html>

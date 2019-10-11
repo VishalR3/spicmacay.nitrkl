@@ -22,7 +22,8 @@
         $this->load->view('templates/adminbar',$data);
         $this->load->view('pages/'.$page, $data);
         $this->load->view('templates/adminfooter', $data);
-    }else{
+    }
+    else{
 
 
     $this->load->view('templates/header', $data);

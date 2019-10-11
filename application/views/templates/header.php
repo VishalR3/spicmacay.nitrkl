@@ -14,6 +14,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="<?php echo base_url() ;?>assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo base_url() ;?>assets/vendor/gallery/justifiedGallery.min.css" rel="stylesheet">
     <link href="<?php echo base_url() ;?>assets/vendor/fa/css/font-awesome.min.css" rel="stylesheet">
     <link href="<?php echo base_url() ;?>assets/css/events.css" rel="stylesheet">
     <link href="<?php echo base_url() ;?>assets/css/spic.css" rel="stylesheet">
@@ -25,6 +26,7 @@
     <link href="https://fonts.googleapis.com/css?family=Livvic&display=swap" rel="stylesheet">
     <script src="<?php echo base_url() ;?>assets/js/spic1.js"></script>
     <script src="<?php echo base_url() ;?>assets/js/spic.js"></script>
+    <script src="<?php echo base_url() ;?>assets/vendor/gallery/jquery.justifiedGallery.min.js"></script>
     <script src="<?php echo base_url() ;?>assets/vendor/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
     <script src="<?php echo base_url() ;?>assets/vendor/owlcarousel/owl.carousel.min.js"></script>
@@ -32,6 +34,20 @@
 
   </head>
   <body style="background-image:url('<?php echo base_url() ;?>assets/img/pat.jpg');">
+  <div id="fb-root"></div>
+  <script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId            : '475854009687013',
+      autoLogAppEvents : true,
+      xfbml            : true,
+      version          : 'v4.0'
+    });
+    FB.AppEvents.logPageView();
+  };
+  
+</script>
+<script async defer src="https://connect.facebook.net/en_US/sdk.js"></script>
 
     <!--Page Content-->
     <!--Header Begins-->

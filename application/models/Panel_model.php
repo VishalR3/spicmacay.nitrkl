@@ -115,6 +115,11 @@
             $query=$this->db->get('gallery');
             return $query->result_array();
         }
+        public function get_feedbacks(){
+            $this->db->order_by('id','DESC');
+            $query=$this->db->get('feedback');
+            return $query->result_array();
+        }
 
 
     }

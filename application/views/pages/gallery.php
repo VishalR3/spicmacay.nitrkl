@@ -1,60 +1,40 @@
-<style>
-    .img{
-        margin-top:20px;
-    }
-</style>
 <div class="container">
         <div class="gallery" id="gallery">
-                <div class="row" id="gal_row">
                 <?php foreach($images as $image) : ?>
-                    <div class="col-md-4 col-sm-6">
-                    <a href="<?php echo base_url(); ?>assets/img/gallery/<?php echo $image['image']; ?>" data-fancybox="gallery">
-                        <img src="<?php echo base_url(); ?>assets/img//gallery/<?php echo $image['image']; ?>" class="img">
+                    <a href="<?php echo base_url(); ?>assets/img/gallery/<?php echo $image['image']; ?>" data-fancybox="gallery" title="<?php echo $image['caption']; ?>">
+                        <img src="<?php echo base_url(); ?>assets/img//gallery/<?php echo $image['image']; ?>" alt="<?php echo $image['caption']; ?>">
                 </a>
-                    </div>
                 <?php endforeach ; ?>
-                    <div class="col-md-4 col-sm-6">
                     <a href="<?php echo base_url(); ?>assets/img/inno2.jpg" data-fancybox="gallery">
-                        <img src="<?php echo base_url(); ?>assets/img/inno2.jpg" class="img">
+                        <img src="<?php echo base_url(); ?>assets/img/inno2.jpg" >
                 </a>
-                    </div>
-                    <div class="col-md-4 col-sm-6">
                     <a href="<?php echo base_url(); ?>assets/img/inno3.jpg" data-fancybox="gallery">
-                        <img src="<?php echo base_url(); ?>assets/img/inno3.jpg" class="img">
+                        <img src="<?php echo base_url(); ?>assets/img/inno3.jpg" >
                 </a>
-                    </div>
-                    <div class="col-md-4 col-sm-6">
                     <a href="<?php echo base_url(); ?>assets/img/inno4.jpg" data-fancybox="gallery">
-                        <img src="<?php echo base_url(); ?>assets/img/inno4.jpg" class="img">
+                        <img src="<?php echo base_url(); ?>assets/img/inno4.jpg" >
                 </a>
-                    </div>
-                    <div class="col-md-4 col-sm-6">
                     <a href="<?php echo base_url(); ?>assets/img/inno5.jpg" data-fancybox="gallery">
-                        <img src="<?php echo base_url(); ?>assets/img/inno5.jpg" class="img">
+                        <img src="<?php echo base_url(); ?>assets/img/inno5.jpg" >
                 </a>
-                    </div>
-                    <div class="col-md-4 col-sm-6">
+
                     <a href="<?php echo base_url(); ?>assets/img/manager.jpg" data-fancybox="gallery">
-                        <img src="<?php echo base_url(); ?>assets/img/manager.jpg" class="img">
+                        <img src="<?php echo base_url(); ?>assets/img/manager.jpg" >
                 </a>
-                    </div>
-                    <div class="col-md-4 col-sm-6">
+
                     <a href="<?php echo base_url(); ?>assets/img/profile.jpg" data-fancybox="gallery">
-                        <img src="<?php echo base_url(); ?>assets/img/profile.jpg" class="img">
+                        <img src="<?php echo base_url(); ?>assets/img/profile.jpg" >
                 </a>
-                    </div>
-                    <div class="col-md-4 col-sm-6">
+
                     <a href="<?php echo base_url(); ?>assets/img/shivam.jpg" data-fancybox="gallery">
-                        <img src="<?php echo base_url(); ?>assets/img/shivam.jpg" class="img">
+                        <img src="<?php echo base_url(); ?>assets/img/shivam.jpg" >
                 </a>
-                    </div>
-                    <div class="col-md-4 col-sm-6">
+
                     <a href="<?php echo base_url(); ?>assets/img/shivani.jpg" data-fancybox="gallery">
-                        <img src="<?php echo base_url(); ?>assets/img/shivani.jpg" class="img">
+                        <img src="<?php echo base_url(); ?>assets/img/shivani.jpg" >
                 </a>
-                    </div>
-                </div>           
-                </div>
+       
+</div>
                 
                
                

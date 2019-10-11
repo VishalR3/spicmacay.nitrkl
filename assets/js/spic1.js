@@ -1,4 +1,5 @@
 $(document).ready(function(){
+      
 
       // Scroll Control for mobile
             if($(window).width()<=576){

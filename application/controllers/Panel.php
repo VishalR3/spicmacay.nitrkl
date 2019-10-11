@@ -143,7 +143,6 @@
             $data['title']="Upload Gallery Pics";
             $data['images'] = $this->Panel_model->get_pics();
 
-            $this->form_validation->set_rules('caption', 'Caption', 'required');
 
             if($this->form_validation->run()=== FALSE){
             $this->load->view('templates/header',$data);
@@ -173,6 +172,18 @@
                 redirect("gallery_pics");
             }     
 
+        }
+        public function feedback(){
+            if(!$this->session->userdata("logged_in")){
+                redirect("login");
+            }
+
+            $data['feeds']=$this->Panel_model->get_feedbacks();
+
+            $this->load->view('templates/header',$data);
+            $this->load->view('templates/adminbar',$data);
+            $this->load->view('admin/feedback', $data);
+            $this->load->view('templates/adminfooter');
         }
     }
 

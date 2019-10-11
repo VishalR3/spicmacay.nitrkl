@@ -45,6 +45,7 @@ if ($this->session->userdata('role') >= '1') {?>
     <li class="nav-item"><a class="nav-link" href="<?php echo base_url(); ?>admin#team_pic">Team Photo</a></li>
     <li class="nav-item"><a class="nav-link" href="<?php echo base_url(); ?>admin#featured">Featured Posts</a></li>
     <?php if($this->session->userdata('role')>= '3') { ?>
+    <li class="nav-item"><a class="nav-link" href="<?php echo base_url(); ?>feedback">View feedbacks</a></li>
     <li class="nav-item"><a class="nav-link" href="<?php echo base_url(); ?>register">Register New Admin</a></li><?php } ?>
     <?php if($this->session->userdata('role')>= '4') { ?>
     <li class="nav-item"><a class="nav-link" href="<?php echo base_url(); ?>add_admin">Add Admin</a></li>

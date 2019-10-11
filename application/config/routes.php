@@ -2,6 +2,8 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 
+
+$route['feedback']="panel/feedback";
 $route['add_admin']="Admin/add_admin";
 $route['gallery_pics']="Panel/gallery_pics";
 $route['delete/(:any)']='Panel/delete/$1';
