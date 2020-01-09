@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/" 
+                       xmlns:moz="http://www.mozilla.org/2006/browser/search/"> 
+    <ShortName>SPICMACAY NITR</ShortName>
+    <LongName>Society for The Promotion of Indian Classical Music and Culture amongst Youth </LongName> 
+    <Description>Society for The Promotion of Indian Classical Music and Culture amongst Youth NIT Rourkela Chapter</Description> 
+    <Developer>Vishal Rana</Developer>
+    <Attribution>©2020</Attribution>
+    <AdultContent>false</AdultContent>
+    <Language>en-us</Language>
+    <InputEncoding>UTF-8</InputEncoding>
+    <OutputEncoding>UTF-8</OutputEncoding>
+    <Image width="16" height="16" type="image/x-icon">http://localhost/spicmacay.nitrkl.ac.in/assets/img/favicon.png</Image> 
+    <Url type="text/html" method="GET" template="http:/localhost/spicmacay.nitrkl.ac.in//search/{searchTerms}"></Url>
+    <Url type="application/x-suggestions+json" template="http://ff.search.yahoo.com/gossip?output=fxjson&amp;command={searchTerms}"/>
+    <Query role="example" searchTerms="msdn" />
+    <moz:SearchForm>http://localhost/spicmacay.nitrkl.ac.in/</moz:SearchForm>
+</OpenSearchDescription>

@@ -40,11 +40,15 @@
         }
         
         public function login() {
+            $this->load->library('form_validation');
             $this->form_validation->set_rules('username','Username','trim|required');
             $this->form_validation->set_rules('password','Password','trim|required');
         
-            if ($this->form_validation->run() == TRUE) {
-        
+            if ( !$this->form_validation->run() ) {
+                $errors=validation_errors();
+                $this->session->set_flashdata('login_stat', 'Form Validation Fails :'.$errors);
+                redirect("login");
+            }else {
             $user = array(
                 'username'=>$this->input->post('username'),
                 'password'=>md5($this->input->post('password'))
@@ -57,7 +61,6 @@
                 $this->session->set_userdata('email', $data['email']);
                 $this->session->set_userdata('role', $data['role']);
                 $this->session->set_userdata('logged_in', TRUE);
-        
                 $this->session->set_flashdata('login_stat','Login Successful!');
         
                 redirect("admin");
@@ -67,9 +70,8 @@
                 $this->session->set_flashdata('login_stat', 'Login unsuccessful. Try again...');
                 redirect("login");
             }
-            } else {
-                redirect("login");
-            }
+            } 
+                
         
         }
         

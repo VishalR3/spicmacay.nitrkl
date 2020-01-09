@@ -9,6 +9,7 @@ $route['gallery_pics']="Panel/gallery_pics";
 $route['delete/(:any)']='Panel/delete/$1';
 $route['edit/(:any)']='Panel/edit/$1';
 $route['create']='Panel/create';
+$route['admin/login']='Admin/login';
 $route['admin']='Panel/index';
 $route['login']='pages/login';
 $route['admin/signup']='admin/signup';
