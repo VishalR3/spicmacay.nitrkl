@@ -7,7 +7,7 @@
         }
         public function index(){
             if(!$this->session->userdata("logged_in")){
-                redirect("login");
+                redirect(base_url()."login");
             }
     
             $data['title'] = "Admin Panel";
@@ -28,7 +28,7 @@
             $this->form_validation->set_rules('artist', 'Artist', 'required');
             $this->form_validation->set_rules('body', 'Body', 'required');
 
-            if($this->form_validation->run()=== FALSE){
+            if($this->form_validation->run()== FALSE){
             $this->load->view('templates/header',$data);
             $this->load->view('templates/adminbar',$data);
             $this->load->view('admin/create', $data);
@@ -53,12 +53,12 @@
                     }
 
                 $this->Panel_model->create_post($post_image);
-                redirect("admin");
+                redirect(base_url()."admin");
             }        
         }
         public function delete($id){
             $this->Panel_model->delete_post($id);
-            redirect("admin");
+            redirect(base_url()."admin");
         }
         public function edit($slug){
             $data['post']=$this->Panel_model->get_posts($slug);
@@ -91,7 +91,7 @@
                     }
 
             $this->Panel_model->update_post($post_image);
-            redirect("admin");
+            redirect(base_url()."admin");
         }
         public function comment(){
             $this->Panel_model->comment();
@@ -117,7 +117,7 @@
                     }
 
             $this->Panel_model->up_event($post_image);
-            redirect("admin");
+            redirect(base_url()."admin");
         }
         public function team(){
             $config['upload_path']='./assets/img/';
@@ -137,14 +137,17 @@
                     }
 
             $this->Panel_model->team_photo($post_image);
-            redirect("admin");
+            redirect(base_url()."admin");
         }
         public function gallery_pics(){
             $data['title']="Upload Gallery Pics";
             $data['images'] = $this->Panel_model->get_pics();
+            $this->form_validation->set_rules("caption","Caption","required");
 
 
-            if($this->form_validation->run()=== FALSE){
+            if($this->form_validation->run()==FALSE){
+
+            $this->session->set_flashdata("errors",validation_errors());
             $this->load->view('templates/header',$data);
             $this->load->view('templates/adminbar',$data);
             $this->load->view('admin/gallery', $data);
@@ -169,13 +172,18 @@
                     }
 
                 $this->Panel_model->gallery_photo($image);
-                redirect("gallery_pics");
+                redirect(base_url()."gallery_pics");
             }     
 
         }
+        public function remove_pic(){
+            $response['success']=$this->Panel_model->removePic();
+            
+            exit(json_encode($response));
+        }
         public function feedback(){
             if(!$this->session->userdata("logged_in")){
-                redirect("login");
+                redirect(base_url()."login");
             }
 
             $data['feeds']=$this->Panel_model->get_feedbacks();
@@ -186,5 +194,3 @@
             $this->load->view('templates/adminfooter');
         }
     }
-
-?>

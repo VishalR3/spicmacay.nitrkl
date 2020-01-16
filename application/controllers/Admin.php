@@ -19,6 +19,7 @@
             $this->form_validation->set_rules('username', 'Username','trim|required|is_unique[users.username]');
             $this->form_validation->set_rules('email', 'Email','trim|required|valid_email|is_unique[users.email]');
             $this->form_validation->set_rules('password', 'Password','trim|required');
+            $this->form_validation->set_rules('cpassword', 'Confirm Password','trim|required|matches[password]');
             $this->form_validation->set_rules('role','User Role','required');
         
             if ($this->form_validation->run() == TRUE) {
@@ -29,29 +30,32 @@
                 $role = $this->input->post('role');
                 $this->Admin_model->sign_up($username, $email, $name ,$password,$role);
                 $this->session->set_flashdata('signup_stat', 'Sign up successful! Login to your account');
-                redirect();
+                redirect("register");
             }
         
             else {
-                $this->session->set_flashdata('signup_stat', 'Sign up unsuccessful! Try again');
+
+                $this->session->set_flashdata('signup_stat', 'Sign up unsuccessful! Try again ');
                 redirect("register");
                 
             }
         }
         
         public function login() {
-            $this->load->library('form_validation');
             $this->form_validation->set_rules('username','Username','trim|required');
             $this->form_validation->set_rules('password','Password','trim|required');
         
             if ( !$this->form_validation->run() ) {
-                $errors=validation_errors();
+                $errors= validation_errors();
                 $this->session->set_flashdata('login_stat', 'Form Validation Fails :'.$errors);
-                redirect("login");
+                // redirect("login");
+                $response['errors']='Form Validation Fails : '.$errors;
+                $response['success']=FALSE;
+
             }else {
             $user = array(
-                'username'=>$this->input->post('username'),
-                'password'=>md5($this->input->post('password'))
+                'username' => $this->input->post('username'),
+                'password' => md5($this->input->post('password'))
             );
         
             $data = $this->Admin_model->login_user($user['username'], $user['password']);
@@ -63,14 +67,19 @@
                 $this->session->set_userdata('logged_in', TRUE);
                 $this->session->set_flashdata('login_stat','Login Successful!');
         
-                redirect("admin");
+                // redirect("admin");
+                $response['success']=TRUE;
+                $response['errors']="No errors";
             }
         
             else {
-                $this->session->set_flashdata('login_stat', 'Login unsuccessful. Try again...');
-                redirect("login");
+                $this->session->set_flashdata('login_stat', 'Login unsuccessful. Try again...'.$user['username']);
+                // redirect("login");
+                $response['success']=FALSE;
+                $response['errors']="Login unsuccessful. Try again....".$user['username'];
             }
             } 
+            exit(json_encode($response));
                 
         
         }

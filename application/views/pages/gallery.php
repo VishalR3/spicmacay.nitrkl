@@ -18,21 +18,6 @@
                         <img src="<?php echo base_url(); ?>assets/img/inno5.jpg" >
                 </a>
 
-                    <a href="<?php echo base_url(); ?>assets/img/manager.jpg" data-fancybox="gallery">
-                        <img src="<?php echo base_url(); ?>assets/img/manager.jpg" >
-                </a>
-
-                    <a href="<?php echo base_url(); ?>assets/img/profile.jpg" data-fancybox="gallery">
-                        <img src="<?php echo base_url(); ?>assets/img/profile.jpg" >
-                </a>
-
-                    <a href="<?php echo base_url(); ?>assets/img/shivam.jpg" data-fancybox="gallery">
-                        <img src="<?php echo base_url(); ?>assets/img/shivam.jpg" >
-                </a>
-
-                    <a href="<?php echo base_url(); ?>assets/img/shivani.jpg" data-fancybox="gallery">
-                        <img src="<?php echo base_url(); ?>assets/img/shivani.jpg" >
-                </a>
        
 </div>
                 

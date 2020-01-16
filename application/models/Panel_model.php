@@ -80,6 +80,7 @@
                 'title'=>$this->input->post('title'),
                 'artist'=>$this->input->post('artist'),
                 'date'=>$this->input->post('date'),
+                'link'=>$this->input->post('fb-link'),
                 'post_image'=>$post_image
             );
             return $this->db->insert('event_database',$data);
@@ -109,6 +110,15 @@
                 'image'=>$image
             );
             return $this->db->insert('gallery',$data);
+        }
+        public function removePic(){
+            $id=$this->input->post("id");
+            $this->db->where("id",$id);
+            $query=$this->db->delete("gallery");
+            if($query)
+                return TRUE;
+            else 
+                return FALSE;
         }
         public function get_pics(){
             $this->db->order_by('id','DESC');

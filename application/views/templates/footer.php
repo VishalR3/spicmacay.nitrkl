@@ -28,9 +28,13 @@
        <script>
        $(function(){
          $("#share_btn").click(function(){
+           var link=$(this).attr("href");
+           if(link==""){
+             link="https://www.facebook.com/SpicMacayNITR/posts/2374678469275536"
+           }
           FB.ui({
   method: 'share',
-  href: "https://www.facebook.com/SpicMacayNITR/posts/2374678469275536",
+  href: link,
   hashtag: "#spicmacay"
 
 }, function(response){});

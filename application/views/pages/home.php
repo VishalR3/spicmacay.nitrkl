@@ -67,7 +67,7 @@
                       <div class="col-lg-6 order-2 card-2">
                         <img src="<?php echo base_url(); ?>assets/img/events/<?php echo $upcoming['post_image']; ?>" style="width:100%;">
                       </div>
-                          <button class="btn" id="share_btn">Share</button>
+                          <button class="btn" id="share_btn" href="<?php echo $upcoming["link"];?>">Share</button>
                     </div>
                     
         <hr>

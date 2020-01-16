@@ -28,7 +28,7 @@ if ($this->session->userdata('role') >= '1') {?>
     <div id="Up_eve">
     <h4>Upcoming Event Details</h4>
     <div class="row" style="display:flexbox;border:1px solid black;margin-bottom:10px;">
-        <div id="info" class="col-sm-6 text-center" style="transform : translateY(50%);margin-top:-50%;">
+        <div id="info" class="col-sm-6 text-center">
         
         <h6><i><?php echo $upcoming['artist'] ;?></i></h6><br><br>
         <b><?php echo $upcoming['title'] ;?></b>
@@ -46,6 +46,10 @@ if ($this->session->userdata('role') >= '1') {?>
   <div class="form-group">
     <label>Artist</label>
     <input type="text" class="form-control" name="artist" placeholder="Add Artist's Name">
+  </div>
+  <div class="form-group">
+    <label>Facebook Post Link</label>
+    <input type="text" class="form-control" name="fb-link" placeholder="Add Facebook Link">
   </div>
   <div class="form-group">
     <label>Date</label>

@@ -65,7 +65,7 @@ table tr,th,td{
 
 
 <?php }
-  else if(!$this->session->userdata('logged_in') or $this->session->userdata('role') < '4'){ ?>
+   else if(!$this->session->userdata('logged_in') or $this->session->userdata('role') < '4'){ ?>
   <div class="container" style="background-color:#eee;padding:10%;">
      <div class="errbox text-center" style="background-color:#bbb;padding:30px;">
      <h1>Sorry! Direct Access is Forbidden</h1>

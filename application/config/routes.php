@@ -5,6 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 $route['feedback']="panel/feedback";
 $route['add_admin']="Admin/add_admin";
+$route['panel/remove_pic']="Panel/remove_pic";
 $route['gallery_pics']="Panel/gallery_pics";
 $route['delete/(:any)']='Panel/delete/$1';
 $route['edit/(:any)']='Panel/edit/$1';

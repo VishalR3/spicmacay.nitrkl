@@ -15,7 +15,7 @@ if ($this->session->userdata('role') >= '1') {?>
 
 <h2><?= $title; ?></h2>
 
-<?php echo validation_errors(); ?>
+<?php echo $this->session->flashdata("errors");?>
 <div class="form" style="border:1px solid black;padding:20px;">
 <div class="row">
     <div class="col-sm-6 col-md-8">
@@ -45,6 +45,7 @@ if ($this->session->userdata('role') >= '1') {?>
 <div class="existing">
   <img src="<?php echo base_url();?>assets/img/gallery/<?php echo $image['image'];?>">
   <p><?php echo $image['caption'];?></p>
+  <button class="btn btn-danger remove_pic" data-id="<?php echo $image['id'];?> ">Delete</button>
 </div>
 <?php endforeach;?>
 

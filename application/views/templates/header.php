@@ -24,7 +24,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
     <script src="<?php echo base_url() ;?>assets/vendor/jquery/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Livvic&display=swap" rel="stylesheet">
-    <script src="<?php echo base_url() ;?>assets/js/spic1.js"></script>
+    <script src="<?php echo base_url() ;?>assets/js/init.js"></script>
     <script src="<?php echo base_url() ;?>assets/js/spic.js"></script>
     <script src="<?php echo base_url() ;?>assets/vendor/gallery/jquery.justifiedGallery.min.js"></script>
     <script src="<?php echo base_url() ;?>assets/vendor/bootstrap/js/bootstrap.min.js"></script>
